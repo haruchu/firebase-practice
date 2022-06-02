@@ -19,17 +19,20 @@ const App = () => {
 
   const createUser = async () => {
     await addDoc(usersColelctionRef, { name: newName, age: newAge });
+    window.location.reload();
   };
 
   const updateUser = async (id, age) => {
     const userDoc = doc(db, "users", id);
     const newFields = { age: age + 1 };
     await updateDoc(userDoc, newFields);
+    window.location.reload();
   };
 
   const deleteUser = async (id) => {
     const userDoc = doc(db, "users", id);
     await deleteDoc(userDoc);
+    window.location.reload();
   };
 
   return (
